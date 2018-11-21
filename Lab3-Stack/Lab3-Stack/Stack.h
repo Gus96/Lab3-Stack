@@ -13,6 +13,8 @@ public:
 	void Push(const int elem);
 	T Pop();
 	T Top() const;
+	bool IsEmpty() const;
+	bool IsFull() const;
 
 };
 template <class T>
@@ -73,4 +75,25 @@ T TStack <T>::Pop()
 		Size--;
 		return Stack[Size];
 	}
+}
+
+template <class T>
+T Top()
+{
+	if (Size == 0)
+		throw -1;
+	else
+		return mas[Size - 1];
+}
+
+template <class T>
+bool TStack <T>::IsEmpty() const 
+{
+	return (Size == 0);
+}
+
+template <class T>
+bool TStack <T>::IsFull() const
+{
+	return (Size == MaxSize);
 }
