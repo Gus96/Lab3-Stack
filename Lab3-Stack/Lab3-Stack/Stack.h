@@ -4,7 +4,7 @@ class TStack
 {
 	int MaxSize;
 	int Size;
-	T *mas;
+	T *Stack;
 public:
 	TStack(const int MS = 10);
 	TStack(const TStack <T> &tmp);
@@ -15,13 +15,14 @@ public:
 	T Top() const;
 	bool IsEmpty() const;
 	bool IsFull() const;
+	void Clear();
 
 };
 template <class T>
 TStack <T>:: TStack (const int MS)
 {
 	MaxSize = MS;
-	mas = new T[MaxSize];
+	Stack = new T[MaxSize];
 	Size = 0;
 }
 template <class T>
@@ -29,14 +30,14 @@ TStack <T>::TStack(const TStack <T> &tmp )
 {
 	MaxSize = tmp.MaxSize;
 	Size = tmp.MaxSize;
-	mas new T[MaxSize];
+	Stack new T[MaxSize];
 	for (int = 0; i < Size; i++)
 		mas[i] = tmp.mas[i];
 }
 template <class T>
 TStack <T> ::~TStack() 
 {
-	delete[] mas;
+	delete[] Stack;
 }
 
 template <class T>
@@ -78,12 +79,12 @@ T TStack <T>::Pop()
 }
 
 template <class T>
-T Top()
+T TStack<T>:: Top() const
 {
 	if (Size == 0)
 		throw -1;
 	else
-		return mas[Size - 1];
+		return Stack[Size - 1];
 }
 
 template <class T>
@@ -96,4 +97,11 @@ template <class T>
 bool TStack <T>::IsFull() const
 {
 	return (Size == MaxSize);
+}
+
+template <class T>
+void TStack <T>::Clear()
+{
+	while (!(this->IsEmpty()))
+		this->Pop();
 }
