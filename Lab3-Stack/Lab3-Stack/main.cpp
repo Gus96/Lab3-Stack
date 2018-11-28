@@ -5,9 +5,14 @@ using namespace std;
 
 
 
-
-
 void main()
 {
+	TCalculator a;
+
+	a.SetInfix();
+	cout<<a.GetPostfix();
+
+
+
 	system("pause");
 }

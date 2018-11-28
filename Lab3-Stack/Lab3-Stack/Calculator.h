@@ -88,3 +88,28 @@ string TCalculator::GetPostfix()
 	this->ToPostfix();
 	return postfix;
 }
+
+double TCalculator::Calculator()
+{
+	double num1, num2, res;
+	Stnum.Clear();
+	for (int i = 0; i< postfix.size(); i++)
+	{
+		if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*'|| postfix[i] == '/')
+		{
+			num2 = Stnum.Pop();
+			num1 = Stnum.Pop();
+			switch (postfix[i])
+			{
+			case '+' : res = num1 + num2;
+				break;
+			case '-': res = num1 - num2;
+				break;
+			case '*': res = num1 * num2;
+				break;
+			case '/': res = num1 / num2;
+			}
+			Stnum.Push(res);
+		}
+		if (postfix[i]
+}
