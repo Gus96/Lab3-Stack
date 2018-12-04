@@ -21,18 +21,23 @@ public:
 template <class T>
 TStack <T>:: TStack (const int MS)
 {
-	MaxSize = MS;
-	Stack = new T[MaxSize];
-	Size = 0;
+	if (MS < 0)
+		throw -1;
+	else
+	{
+		MaxSize = MS;
+		Stack = new T[MaxSize];
+		Size = 0;
+	}
 }
 template <class T>
 TStack <T>::TStack(const TStack <T> &tmp )
 {
 	MaxSize = tmp.MaxSize;
 	Size = tmp.MaxSize;
-	Stack new T[MaxSize];
-	for (int = 0; i < Size; i++)
-		mas[i] = tmp.mas[i];
+	Stack = new T[MaxSize];
+	for (int i = 0; i < Size; i++)
+		Stack[i] = tmp.Stack[i];
 }
 template <class T>
 TStack <T> ::~TStack() 

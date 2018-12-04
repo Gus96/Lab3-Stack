@@ -52,7 +52,7 @@ void TCalculator::ToPostfix()///////////
 			postfix += tmp[i];
 		if (tmp[i] == ')')
 		{
-			while (Stop.Top() != '(')///////////
+			while (Stop.Top() != '(')
 				postfix += Stop.Pop();
 			Stop.Pop();
 		}
@@ -85,23 +85,23 @@ void TCalculator::SetInfix()
 
 string TCalculator::GetPostfix()
 {
-	this->ToPostfix();
+	this->ToPostfix();//этот объект вызывает функцию
 	return postfix;
 }
 
 double TCalculator::Calculator()
 {
 	double num1, num2, res;
-	Stnum.Clear();
-	for (int i = 0; i< postfix.size(); i++)
+	Stnum.Clear();//очищается стек с числами
+	for (int i = 0; i < postfix.size(); i++)
 	{
-		if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*'|| postfix[i] == '/')
+		if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' || postfix[i] == '/' || postfix[i] == '^')
 		{
-			num2 = Stnum.Pop();
+			num2 = Stnum.Pop();/////
 			num1 = Stnum.Pop();
 			switch (postfix[i])
 			{
-			case '+' : res = num1 + num2;
+			case '+': res = num1 + num2;
 				break;
 			case '-': res = num1 - num2;
 				break;
@@ -111,5 +111,15 @@ double TCalculator::Calculator()
 			}
 			Stnum.Push(res);
 		}
-		if (postfix[i]
+		if (postfix[i] >= '0' && postfix[i] <= '9')
+		{
+			char *p;
+			double x;
+			x = strtod(&postfix[i], &p);
+			Stnum.Push(x);
+			int lenght = p - &postfix[i];//длина числа
+			i += lenght - 1;//перескакиваем с начала большого числа на конец
+		}
+	}
+	return Stnum.Pop();
 }
