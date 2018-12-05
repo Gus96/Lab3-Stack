@@ -1,21 +1,23 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <cmath>
+//#include "..\..\Lab3-Stack\Stack.h"
 #include "Stack.h"
 
-using namespace std;
+//using namespace std;
 
 
 class TCalculator
 {
-	string infix, postfix;
+	std::string infix, postfix;
 	TStack <char> Stop;
 	TStack <double> Stnum;
 	int Priority(const char m) const;
 public:
 	void ToPostfix();
 	void SetInfix();
-	string GetPostfix();
+	std::string GetPostfix();
 	double Calculator();
 };
 
@@ -43,7 +45,7 @@ void TCalculator::ToPostfix()///////////
 {
 	postfix = "";
 	Stop.Clear();
-	string tmp = "(" + infix + ")";
+	std::string tmp = "(" + infix + ")";
 	for (int i = 0; i < tmp.size(); i++)
 	{
 		if (tmp[i] == '(')
@@ -83,7 +85,7 @@ void TCalculator::SetInfix()
 
 }
 
-string TCalculator::GetPostfix()
+std::string TCalculator::GetPostfix()
 {
 	this->ToPostfix();//этот объект вызывает функцию
 	return postfix;
