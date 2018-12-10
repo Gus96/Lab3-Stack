@@ -33,3 +33,17 @@ TEST(TStack, cant_pop_elem)
 	TStack <int> s(0);
 	ASSERT_ANY_THROW(s.Pop());
 }
+
+TEST(TStack, stack_is_empty_return_true)
+{
+	TStack <int> s(5);
+	EXPECT_EQ(true, s.IsEmpty());
+}
+
+TEST(TStack, stack_is_full_return_true)
+{
+	TStack <int> s(5);
+	for (int i = 0; i<5; i++)
+		s.Push(i);
+	EXPECT_EQ(true, s.IsFull());
+}

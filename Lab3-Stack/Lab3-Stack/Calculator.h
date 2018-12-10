@@ -19,6 +19,7 @@ public:
 	void SetInfix();
 	std::string GetPostfix();
 	double Calculator();
+	void SetInfix(std::string str);
 };
 
 int TCalculator::Priority(const char m) const
@@ -124,4 +125,8 @@ double TCalculator::Calculator()
 		}
 	}
 	return Stnum.Pop();
+}
+void TCalculator::SetInfix(std::string str)
+{
+	infix = str;
 }

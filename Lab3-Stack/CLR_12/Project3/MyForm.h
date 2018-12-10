@@ -111,7 +111,7 @@ namespace Project3 {
 				 //Калькулятор
 				 TCalculator calc;
 				 //Запись выражения
-				 calc.SetInfix(infix);////////////////////////////////
+				 calc.SetInfix(infix);
 				 //перевод в постфиксную запись
 					 calc.ToPostfix();
 					 //вычисление и вывод на форму
