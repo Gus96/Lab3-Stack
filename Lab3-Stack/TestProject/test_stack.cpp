@@ -20,6 +20,12 @@ TEST(TStack, cant_push_elem)
 	ASSERT_ANY_THROW(s.Push(6));//пытается добавить в полный стек
 }
 
+TEST(TStack, can_push_elem)
+{
+	TStack <int> s(5);
+	ASSERT_NO_THROW(s.Push(4));
+}
+
 TEST(TStack, can_pop_elem)
 {
 	TStack <int> s(5);
@@ -46,4 +52,17 @@ TEST(TStack, stack_is_full_return_true)
 	for (int i = 0; i<5; i++)
 		s.Push(i);
 	EXPECT_EQ(true, s.IsFull());
+}
+
+TEST(TStack, can_top_elem)
+{
+	TStack <int> s(5);
+	for (int i = 0; i<5; i++)
+		s.Push(i);
+	EXPECT_EQ(4, s.Top());
+}
+TEST(TStack, cant_top_elem)
+{
+	TStack <int> s(5);
+	ASSERT_ANY_THROW(s.Top());
 }
