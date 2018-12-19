@@ -36,7 +36,7 @@ TEST(TStack, can_pop_elem)
 
 TEST(TStack, cant_pop_elem)
 {
-	TStack <int> s(0);
+	TStack <int> s(10);
 	ASSERT_ANY_THROW(s.Pop());
 }
 

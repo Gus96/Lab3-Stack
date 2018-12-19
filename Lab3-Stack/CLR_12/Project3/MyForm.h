@@ -41,7 +41,7 @@ namespace Project3 {
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::Label^  label2;
+
 
 	protected:
 
@@ -61,7 +61,6 @@ namespace Project3 {
 			this->button = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button
@@ -91,21 +90,11 @@ namespace Project3 {
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 2;
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(13, 97);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"label2";
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(385, 140);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button);
@@ -129,7 +118,8 @@ namespace Project3 {
 				 //перевод в постфиксную запись
 					 calc.ToPostfix();
 					 //вычисление и вывод на форму
-				 label1->Text = Convert::ToString(calc.Calculator());
+					 double num = calc.Calculator();
+				 label1->Text = Convert::ToString(num);
 				//label2->Text = Convert::ToString(calc.ToPostfix);
 	}
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {

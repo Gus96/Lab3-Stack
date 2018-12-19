@@ -10,7 +10,7 @@ public:
 	TStack(const TStack <T> &tmp);
 	~TStack();
 	TStack& operator= (const TStack &tmp);
-	void Push(const int elem);
+	void Push(T elem);
 	T Pop();
 	T Top() const;
 	bool IsEmpty() const;
@@ -60,7 +60,7 @@ TStack <T> &TStack <T> ::operator= (const TStack &tmp)
 	return *this;
 }
 template <class T>
-void TStack<T> ::Push(const int elem)
+void TStack<T> ::Push(T elem)
 {
 	if (MaxSize == Size)
 		throw "Stack is full";
